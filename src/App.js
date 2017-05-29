@@ -53,11 +53,11 @@ class App extends React.Component {
     if (data.loading) return <p>Loading...</p>
 
     return (
-      <div>
+      <div className='container'>
         <h2>Users</h2>
-        <ul>
+        <ul className='list-group'>
           {data.allUsers.map(c =>
-            <li key={c.id}>
+            <li key={c.id} className='list-group-item'>
               ({c.id}) {c.name}
               <ul>
                 {c.posts.map(p =>
@@ -68,21 +68,23 @@ class App extends React.Component {
           )}
         </ul>
 
+        <br />
+
         <div>
           <h2>Create Post</h2>
-          <div>
+          <div className='form-group'>
             <label>Author</label>
-            <input onChange={this.update('author')} value={this.state.author} />
+            <input className='form-control' onChange={this.update('author')} value={this.state.author} />
           </div>
-          <div>
+          <div className='form-group'>
             <label>Title</label>
-            <input onChange={this.update('title')} value={this.state.title} />
+            <input className='form-control' onChange={this.update('title')} value={this.state.title} />
           </div>
-          <div>
+          <div className='form-group'>
             <label>Content</label>
-            <input onChange={this.update('content')} value={this.state.content} />
+            <input className='form-control' onChange={this.update('content')} value={this.state.content} />
           </div>
-          <button onClick={this.create}>Create</button>
+          <button className='btn btn-primary' onClick={this.create}>Create</button>
         </div>
       </div>
     )
